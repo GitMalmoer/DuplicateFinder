@@ -1,0 +1,73 @@
+﻿<Window x:Class="DuplicateFinder_MarcinJunka.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DuplicateFinder_MarcinJunka"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="550" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <StackPanel Grid.Column="0">
+            <Button x:Name="btnSelectFolder" Margin="0 10 0 0" Content="Select Folder" Click="btnSelectFolder_Click"></Button>
+            <Label>Path:</Label>
+            <TextBox x:Name="txtFolderPath" TextWrapping="Wrap"></TextBox>
+
+
+            <StackPanel Orientation="Horizontal">
+                <CheckBox x:Name="checkIncludeSubfolders" VerticalAlignment="Center"></CheckBox>
+                <Label>Include subfolders</Label>
+            </StackPanel>
+            <Separator></Separator>
+            <Label>Search specifications:</Label>
+
+            <StackPanel Orientation="Horizontal">
+                <CheckBox x:Name="checkDateCreated" VerticalAlignment="Center"></CheckBox>
+                <Label>Date Created</Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <CheckBox x:Name="checkDateModified" VerticalAlignment="Center"></CheckBox>
+                <Label>Date Modified</Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <CheckBox x:Name="checkSize" VerticalAlignment="Center"></CheckBox>
+                <Label>Size</Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <CheckBox x:Name="checkFileType" VerticalAlignment="Center"></CheckBox>
+                <Label>File Types</Label>
+            </StackPanel>
+            <Separator></Separator>
+
+            <Button x:Name="btnSearch" Margin="0 10 0 0" Content="Search for duplicates" Click="btnSearch_Click" ></Button>
+
+        </StackPanel>
+
+        <StackPanel Grid.Column="1">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label >All files:</Label>
+                <Label x:Name="lblAllFilesCount"></Label>
+            </StackPanel>
+            <ScrollViewer VerticalScrollBarVisibility="Visible">
+                <ListView Margin="5 0 0 0" Height="200" x:Name="lstViewAll"></ListView>
+            </ScrollViewer>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+
+                <Label HorizontalAlignment="Center">Duplicates:</Label>
+                <Label x:Name="lblDuplicatesCount"></Label>
+            </StackPanel>
+
+            <ScrollViewer VerticalScrollBarVisibility="Visible">
+                <ListView Margin="5 0 0 0" Height="200" x:Name="lstViewDuplicates"></ListView>
+            </ScrollViewer>
+
+            <Button x:Name="btnRemoveSelected" Margin="5" Click="btnRemoveSelected_Click">Remove Selected File</Button>
+        </StackPanel>
+
+    </Grid>
+</Window>
